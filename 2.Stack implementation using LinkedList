@@ -1,0 +1,72 @@
+public class Stack {
+	
+	static StackNode root;
+	
+	static class StackNode{
+		int data;
+		StackNode next;
+		StackNode(int d){
+			data = d;
+		}
+	}
+	
+	static boolean isEmpty() {
+		if(root == null) {
+			return true;
+		}
+		return false;
+	}
+	
+	static void push(int d) {
+		StackNode node = new StackNode(d);
+		if(root == null) {
+			root = node;
+		}
+		else {
+			StackNode temp = root;
+			root = node;
+			node.next = temp;
+		}
+		System.out.println(d + " pushed to stack");
+	}
+	
+	static int pop() {
+		int popped = Integer.MIN_VALUE;
+		if(root == null) {
+			System.out.println("Stack is Empty");
+		}
+		else {
+			popped = root.data;
+			root = root.next;
+		}
+		
+		return popped;
+	}
+	
+	static int peek() {
+		int popped = Integer.MIN_VALUE;
+		if(root == null) {
+			System.out.println("Stack is Empty");
+		}
+		else {
+			popped = root.data;
+		}
+		
+		return popped;
+	}
+	
+	public static void main(String[] args)
+    {
+ 
+        Stack sll = new Stack();
+ 
+        sll.push(10);
+        sll.push(20);
+        sll.push(30);
+ 
+        System.out.println(sll.pop()
+                           + " popped from stack");
+ 
+        System.out.println("Top element is " + sll.peek());
+    }
+}

@@ -1,0 +1,64 @@
+public class Stack {
+	
+	static final int MAX = 1000;
+	static int[] a = new int[MAX];
+	static int top;
+	
+	Stack(){
+		top = -1;
+	}
+	
+	static int peek() {
+		if(top<0) {
+			System.out.println("Stack underflow");
+			return 0;
+		}
+		else {
+			int x = a[top];
+			return x;
+		}
+	}
+	
+	static int pop() {
+		if(top<0) {
+			System.out.println("Stack underflow");
+			return 0;
+		}
+		else {
+			int x = a[top--];
+			return x;
+		}
+	}
+	
+	static boolean push(int x) {
+		if(top>MAX-1) {
+			System.out.println("Stack overflow");
+			return false;
+		}
+		else {
+			a[++top] = x;
+			return true;
+		}
+	}
+	
+	static void print() {
+		for(int i=top;i>-1;i--) {
+			System.out.print(" "+a[i]);
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		Stack st = new Stack();
+		st.push(10);
+		st.push(20);
+		st.push(30);
+		
+		System.out.println(st.pop() + " Popped from stack");
+        System.out.println("Top element is :" + st.peek());
+        System.out.print("Elements present in stack :");
+        st.print();
+
+	}
+
+}

@@ -1,0 +1,75 @@
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+
+class Driverclass
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        //Reading total number of testcases
+        int t= sc.nextInt();
+        
+        while(t-- >0)
+        {
+            //reading the string
+            String st = sc.next();
+            
+            //calling ispar method of Paranthesis class 
+            //and printing "balanced" if it returns true
+            //else printing "not balanced"
+            if(new Solution().ispar(st) == true)
+                System.out.println("balanced");
+            else
+                System.out.println("not balanced");
+        
+        }
+    }
+}// } Driver Code Ends
+
+
+
+
+class Solution
+{
+    //Function to check if brackets are balanced or not.
+    static boolean ispar(String x)
+    {
+        // add your code here
+        int n = x.length();
+        
+        Stack<Character> st = new Stack<Character>();
+        
+        for(int i=0;i<n;i++){
+            
+            char s = x.charAt(i);
+            
+            if(s == '(' || s == '{' || s == '['){
+                st.push(s);
+                continue;
+            }
+            
+            if(st.isEmpty())
+              return false;
+            
+            char check = st.pop();
+            
+            if(s == ')'){
+                if (check == '{' || check == '[')
+                    return false;
+            }
+            else if(s == '}'){
+                if (check == '(' || check == '[')
+                    return false;
+            }
+            else if(s == ']'){
+                if (check == '{' || check == '(')
+                    return false;
+            }
+            
+        }
+        
+        return st.isEmpty();
+    }
+}

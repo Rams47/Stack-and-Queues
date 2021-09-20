@@ -1,0 +1,12 @@
+addAtBottom(int x){
+
+if(st.isEmpty()){
+st.push(x);
+}
+else{
+int a = st.pop();
+addAtBottom(x);
+st.push(a);
+}
+
+}

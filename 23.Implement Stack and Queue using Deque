@@ -1,0 +1,11 @@
+import java.util.*;
+
+Deque<String> deque = new LinkedList<String>();
+
+void push(int a){
+deque.addFirst(a);
+}
+
+void pop(){
+deque.removeFirst();
+}

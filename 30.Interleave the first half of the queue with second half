@@ -1,0 +1,75 @@
+package fourfifty;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class ThreeTwoFour {
+	
+	private static void interLeaveQueue(Queue<Integer> q) {
+		// TODO Auto-generated method stub
+		if(q.size()%2 != 0) {
+			System.out.println("error");
+			return ;
+		}
+		
+		Queue<Integer> q1 = new LinkedList<Integer>();
+		int halfSize = q.size()/2 ;
+		
+		for(int i=0;i<halfSize;i++) {
+			q1.add(q.peek());
+			q.remove();
+		}
+		while(!q1.isEmpty()) {
+			q.add(q1.peek());
+			q1.poll();
+			q.add(q.peek());
+			q.poll();
+		}
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+	    Queue<Integer> q = new LinkedList<Integer>();
+	    q.add(11);
+	    q.add(12);
+	    q.add(13);
+	    q.add(14);
+	    q.add(15);
+	    q.add(16);
+	    q.add(17);
+	    q.add(18);
+	    q.add(19);
+	    q.add(20);
+	    interLeaveQueue(q);
+	    int length = q.size();
+	    for (int i = 0; i < length; i++) 
+	    {
+	        System.out.print(q.peek() + " ");
+	        q.poll();
+	    }
+	    
+	    Queue<Integer> qu = new LinkedList<Integer>();
+	    qu.add(11);
+	    qu.add(12);
+	    qu.add(13);
+	    qu.add(14);
+	    qu.add(15);
+	    qu.add(16);
+	    qu.add(17);
+	    qu.add(18);
+	    qu.add(19);
+	    qu.add(20);
+	    qu.add(21);
+	    interLeaveQueue(qu);
+	    length = qu.size();
+	    for (int i = 0; i < length; i++) 
+	    {
+	        System.out.print(qu.peek() + " ");
+	        qu.poll();
+	    }
+	}
+
+	
+
+}
